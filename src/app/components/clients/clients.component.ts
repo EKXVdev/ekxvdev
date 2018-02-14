@@ -7,13 +7,13 @@ import {Client} from "../../models/Client";
   templateUrl: './clients.component.html',
   styleUrls: ['./clients.component.css']
 })
+
 export class ClientsComponent implements OnInit {
 
   clients: Client[];
   totalOwed: number;
 
-  constructor(private clientService: ClientService) {
-  }
+  constructor(private clientService: ClientService) {}
 
   ngOnInit() {
     this.clientService.getClients().subscribe(clients => {

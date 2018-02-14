@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ClientService} from "../../services/client.service";
 import {Client} from "../../models/Client";
 
@@ -10,11 +10,20 @@ import {Client} from "../../models/Client";
 export class ClientsComponent implements OnInit {
 
   clients: Client[];
+  totalOwed: number;
 
-  constructor(private clientService: ClientService) { }
+  constructor(private clientService: ClientService) {
+  }
 
   ngOnInit() {
-    this.clientService.getClients().subscribe(
-      clients =>{this.clients = clients});
+    this.clientService.getClients().subscribe(clients => {
+      this.clients = clients;
+      this.getTotalOwed();
+    });
+  }
+
+  getTotalOwed() {
+    //The first parameter in reduce is the function to call and the second one the value to start counting with
+    this.totalOwed = this.clients.reduce((total, client) => {return total + client.balance}, 0);
   }
 }

@@ -6,6 +6,7 @@ import {Client} from "../../models/Client";
   templateUrl: './add-client.component.html',
   styleUrls: ['./add-client.component.css']
 })
+
 export class AddClientComponent implements OnInit {
 
   client: Client = {
@@ -18,9 +19,9 @@ export class AddClientComponent implements OnInit {
 
   disableBalanceOnAdd: boolean = true;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  onSubmit(){}
 }

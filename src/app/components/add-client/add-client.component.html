@@ -10,14 +10,13 @@
 </div>
 
 <div class="card">
-  <div class="card-header">
-    Add client
-  </div>
+  <div class="card-header">Add client</div>
   <div class="card-body">
     <!-- If ngSubmit throws and error import Forms in app.module.ts from @angular/forms-->
-    <form #clientForm class="ngForm" (ngSubmit)="onSubmit(clientForm)">
+    <form #clientForm="ngForm" (ngSubmit)="onSubmit(clientForm)">
+      <!-- First name field-->
       <div class="form-group">
-        <label for="firstName">First name</label>
+        <label>First name</label>
         <input
           type="text"
           class="form-control"
@@ -35,8 +34,9 @@
           Must be at least 2 characters
         </div>
       </div>
+      <!-- Last name field-->
       <div class="form-group">
-        <label for="lastName">Last name</label>
+        <label>Last name</label>
         <input
           type="text"
           class="form-control"
@@ -54,8 +54,9 @@
           Must be at least 2 characters
         </div>
       </div>
+      <!--Email field -->
       <div class="form-group">
-        <label for="email">Email</label>
+        <label>Email</label>
         <input
           type="email"
           class="form-control"
@@ -73,8 +74,9 @@
           Invalid email format
         </div>
       </div>
+      <!-- Phone field -->
       <div class="form-group">
-        <label for="phone">Phone</label>
+        <label>Phone</label>
         <input
           type="text"
           class="form-control"
@@ -92,19 +94,20 @@
           Must be at least 10 characters
         </div>
       </div>
+      <!-- Balance field -->
       <div class="form-group">
-        <label for="balance">Balance</label>
+        <label>Balance</label>
         <input
           type="number"
           class="form-control"
+          [(ngModel)]="client.balance"
           name="balance"
           #clientBalance="ngModel"
-          [(ngModel)]="client.balance"
           [disabled]="disableBalanceOnAdd"
         >
       </div>
+      <!-- Submit button-->
       <input type="submit" value="Submit" class="btn btn-primary btn-block">
-
     </form>
   </div>
 </div>

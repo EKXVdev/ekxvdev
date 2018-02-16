@@ -19,6 +19,10 @@ export class ClientService {
     );
   }
 
+  newClient(client: Client){
+    this.clientsCollection.add(client);
+  }
+
   getClients(): Observable<Client[]> {
     //Get clients with the id
     this.clients = this.clientsCollection.snapshotChanges().map(changes => {
@@ -30,5 +34,19 @@ export class ClientService {
     });
 
     return this.clients;
+  }
+
+  getClient(id: string): Observable<Client>{
+      this.clientDoc = this.afs.doc<Client>(`clients/${id}`)
+    this.client = this.clientDoc.snapshotChanges().map(action =>{
+      if(action.payload.exists === false){
+          return null;
+      }else {
+        const data =  action.payload.data() as Client;
+        data.id = action.payload.id;
+        return data;
+      }
+    });
+    return this.client;
   }
 }

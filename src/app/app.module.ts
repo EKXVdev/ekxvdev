@@ -19,6 +19,8 @@ import {AngularFirestoreModule} from "angularfire2/firestore";
 import {AngularFireAuthModule} from "angularfire2/auth";
 import {ClientService} from './services/client.service';
 import {FormsModule} from "@angular/forms";
+import {FlashMessagesModule } from 'angular2-flash-messages';
+import {FlashMessagesService} from "angular2-flash-messages";
 
 @NgModule({
   declarations: [
@@ -41,9 +43,10 @@ import {FormsModule} from "@angular/forms";
     AngularFireModule.initializeApp(environment.firebase, 'clientpanel'),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    FormsModule
+    FormsModule,
+    FlashMessagesModule.forRoot()
   ],
-  providers: [ClientService],
+  providers: [ClientService, FlashMessagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

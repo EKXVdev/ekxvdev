@@ -24,6 +24,6 @@ export class ClientsComponent implements OnInit {
 
   getTotalOwed() {
     //The first parameter in reduce is the function to call and the second one the value to start counting with
-    this.totalOwed = this.clients.reduce((total, client) => {return total + client.balance}, 0);
+    this.totalOwed = this.clients.reduce((total, client) => {return total + parseFloat(client.balance.toString())}, 0);
   }
 }

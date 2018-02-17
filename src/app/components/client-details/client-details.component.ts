@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ClientService} from "../../services/client.service";
-import {ActivatedRoute, Router, Params} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {FlashMessagesService} from "angular2-flash-messages";
 import {Client} from "../../models/Client";
 
@@ -9,6 +9,7 @@ import {Client} from "../../models/Client";
   templateUrl: './client-details.component.html',
   styleUrls: ['./client-details.component.css']
 })
+
 export class ClientDetailsComponent implements OnInit {
   id: string;
   client: Client;

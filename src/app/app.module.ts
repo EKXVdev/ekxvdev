@@ -21,6 +21,7 @@ import {ClientService} from './services/client.service';
 import {FormsModule} from "@angular/forms";
 import {FlashMessagesModule } from 'angular2-flash-messages';
 import {FlashMessagesService} from "angular2-flash-messages";
+import {AuthService} from "./services/auth.service";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import {FlashMessagesService} from "angular2-flash-messages";
     FormsModule,
     FlashMessagesModule.forRoot()
   ],
-  providers: [ClientService, FlashMessagesService],
+  providers: [ClientService, FlashMessagesService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

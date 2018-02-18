@@ -7,16 +7,25 @@
     <div class="collapse navbar-collapse" id="navbarMain">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a routerLink="/" class="nav-link">Dashboard</a>
+          <a routerLink="/" class="nav-link">dashboard</a>
         </li>
       </ul>
 
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a routerLink="/register" class="nav-link">Register</a>
+        <li *ngIf="!isLoggedIn" class="nav-item">
+          <a *ngIf="!isLoggedIn && showRegister" routerLink="/register" class="nav-link">register</a>
         </li>
-        <li class="nav-item">
-          <a routerLink="/login" class="nav-link">Login</a>
+        <li *ngIf="!isLoggedIn && showRegister" class="nav-item">
+          <a routerLink="/login" class="nav-link">login</a>
+        </li>
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a href="#" class="nav-link">{{loggedInUser}}</a>
+        </li>
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a routerLink="/settings" class="nav-link">settings</a>
+        </li>
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a  href="# " (click)="onLogoutClick()" class="nav-link">logout</a>
         </li>
       </ul>
     </div>

@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    //Redirect to dashboard if the user is logged in
     this.authService.getAuth().subscribe(auth => {
       //if auth is true it means the user is logged in
       if(auth){
